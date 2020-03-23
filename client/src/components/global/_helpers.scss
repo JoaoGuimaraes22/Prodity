@@ -1,0 +1,26 @@
+// Center Items Vertically
+
+@mixin flexCollumn() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+// Centers Items Horizontally
+
+@mixin flexRow() {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  flex-direction: row;
+}
+
+// Displays Grid With Optionall Collums
+
+@mixin Grid($collumns, $rowGap, $collumnGap) {
+  display: grid;
+  grid-template-columns: repeat($collumns, 1fr);
+  row-gap: $rowGap;
+  column-gap: $rowGap;
+}

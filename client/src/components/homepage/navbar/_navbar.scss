@@ -1,0 +1,17 @@
+.nav {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  width: 100%;
+  &__ul {
+    list-style: none;
+    @include flexRow;
+    &__logo {
+    }
+    &__item {
+      margin: 0 2rem;
+    }
+  }
+}

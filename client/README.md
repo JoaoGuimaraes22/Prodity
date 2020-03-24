@@ -3,7 +3,8 @@
 ## Todo
 
 - [] Home Page
-  - [] Navbar
+  - [x] Navbar
+  - [x] Landing
   - [] Introduction
   - [] User Stories
   - [] Footer

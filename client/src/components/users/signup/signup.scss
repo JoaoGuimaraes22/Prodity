@@ -1,0 +1,100 @@
+@import "../../global/global.scss";
+
+.signup {
+  min-height: 100vh;
+  @include flexCollumn;
+  background-color: #fafafa;
+  &__container {
+    margin-top: -12rem;
+    padding: 1rem 2rem;
+    background-color: $wh;
+    @include flexCollumn;
+    border: 1px solid $gray-l;
+    border-radius: 2%;
+    &__item {
+      @include flexCollumn;
+      padding: 1rem 0;
+    }
+    &__intials {
+      display: block;
+      text-align: left;
+      width: 100%;
+      .signup-logo {
+        color: $red;
+        font-size: 1.4rem;
+        cursor: pointer;
+      }
+      .signup-info {
+        margin-top: 1rem;
+      }
+    }
+
+    &__socials {
+      @include flexCollumn;
+      a {
+        @include navLink;
+        margin: 0.4rem 0 0.5rem 0;
+        width: 24rem;
+        padding: 0.6rem 0;
+        border-radius: 3px;
+        text-align: center;
+        background-color: $wh;
+        border: 1px solid $gray-l;
+        .icon {
+          color: $red;
+          margin-right: 0.3rem;
+        }
+      }
+      a:hover {
+        border: 1px solid $bl;
+        background-color: rgb(243, 242, 242);
+      }
+    }
+
+    &__form {
+      padding: 2rem 0;
+      border-top: 1px solid $gray-l;
+      border-bottom: 1px solid $gray-l;
+      .form-item {
+        margin: 0.5rem 0;
+        label {
+          display: block;
+          font-weight: 600;
+        }
+        input {
+          margin-top: 0.4rem;
+          width: 24rem;
+          height: 2rem;
+          padding: 0.3rem;
+        }
+      }
+
+      input[type="submit"] {
+        @include btnLand;
+        border-radius: 3px;
+        margin: 0.4rem 0 0.6rem 0;
+        width: 100%;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background-color: $red-d;
+      }
+    }
+
+    &__extra {
+      .extra-text {
+        font-size: 0.8rem;
+        margin: 1rem 0 0 0;
+        a {
+          margin: 0 0 0 0.2rem;
+          @include navLink;
+          color: $red;
+        }
+        a:hover {
+          text-decoration: underline;
+          text-decoration-color: $red;
+        }
+      }
+    }
+  }
+}

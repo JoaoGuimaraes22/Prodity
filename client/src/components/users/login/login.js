@@ -31,8 +31,7 @@ const Login = () => {
           onSubmit={async e => {
             e.preventDefault();
             const userID = await get("http://localhost:5000/api/userdata");
-            console.log(userID);
-            await router.push(`http://localhost:3000/app/${userID.id}`);
+            await router.push(`/app/${userID.id}`);
           }}
         >
           <div className="form-item">

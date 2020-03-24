@@ -6,11 +6,10 @@ import Navbar from "../src/components/homepage/navbar/navbar";
 function Index() {
   return (
     <div>
+      <Navbar />
       {/*
        ** Landing Page
        */}
-      <Navbar />
-
       {/*
        ** Introduction
        */}
@@ -22,12 +21,6 @@ function Index() {
       {/*
        ** Footer
        */}
-
-      <h1>Hello World</h1>
-
-      <Link href="/about">
-        <a>About Page</a>
-      </Link>
     </div>
   );
 }

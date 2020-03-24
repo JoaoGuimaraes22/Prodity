@@ -1,3 +1,5 @@
+@import "./colors", "./fonts", "./helpers";
+
 *,
 *::after,
 *::before {
@@ -8,4 +10,6 @@
 
 html {
   scroll-behavior: smooth;
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }

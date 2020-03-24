@@ -12,7 +12,7 @@
 @mixin flexRow() {
   display: flex;
   justify-content: center;
-  align-self: center;
+  align-items: center;
   flex-direction: row;
 }
 
@@ -23,4 +23,27 @@
   grid-template-columns: repeat($collumns, 1fr);
   row-gap: $rowGap;
   column-gap: $rowGap;
+}
+
+// Flex Justify-Content: space-bewtween Row -> nav style
+
+@mixin flexRowSpaceBetween() {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+// Basic Link
+
+@mixin navLink() {
+  color: $bl;
+  text-decoration: none;
+}
+
+@mixin navLinkHover {
+  color: black;
+  background-color: rgb(241, 237, 237);
+  transition: 0.4s;
+  border-bottom: 2px solid $red;
 }

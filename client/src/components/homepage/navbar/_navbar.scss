@@ -1,17 +1,36 @@
 .nav {
   position: fixed;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 0;
-  width: 100%;
+  @include flexRowSpaceBetween;
+  width: 65%;
+  margin: 0 auto;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: $wh;
   &__ul {
     list-style: none;
     @include flexRow;
-    &__logo {
-    }
     &__item {
-      margin: 0 2rem;
+      @include navLink;
+      color: $gray;
+      padding: 1rem 2rem;
+    }
+    &__item:hover {
+      @include navLinkHover;
+    }
+    &__item-signup {
+      color: $red;
+    }
+    &__item-signup:hover {
+      color: $red;
+    }
+    &__logo {
+      color: $red;
+    }
+    &__logo:hover {
+      color: red;
+      transition: 0.4s;
+      border: 0;
+      background-color: $wh;
     }
   }
 }

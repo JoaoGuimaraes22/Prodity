@@ -1,21 +1,21 @@
 h1 {
-  font-size: 50px;
+  font-size: 6rem;
 }
 
 h2 {
-  font-size: 40px;
+  font-size: 3rem;
 }
 
 h3 {
-  font-size: 30px;
+  font-size: 2.2rem;
 }
 
 h4 {
-  font-size: 20px;
+  font-size: 1.9rem;
 }
 
 p {
-  font-size: 10px;
+  font-size: 1.3rem;
 }
 
 *,
@@ -30,6 +30,67 @@ p {
 html {
   scroll-behavior: smooth;
   font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.landing {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-image: url("/splatters.jpg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  width: 100%;
+}
+
+.landing__items {
+  margin-top: -14rem;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.landing__items__header {
+  font-size: 6rem;
+  max-width: 59%;
+}
+
+.landing__items__button {
+  color: #000000;
+  text-decoration: none;
+  background-color: #e44232;
+  color: white;
+  padding: 0.9rem 1.8rem;
+  border-radius: 1rem;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.landing__items__button:hover {
+  background-color: #f54637;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .nav {
@@ -53,6 +114,7 @@ html {
   -webkit-transform: translate(-50%, 0);
           transform: translate(-50%, 0);
   background-color: #ffffff;
+  top: -0.45rem;
 }
 
 .nav__ul {
@@ -76,14 +138,14 @@ html {
   color: #000000;
   text-decoration: none;
   color: #616161;
-  padding: 1rem 2rem;
+  padding: 1.4rem 1.4rem;
 }
 
 .nav__ul__item:hover {
   color: black;
   background-color: #f1eded;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
   border-bottom: 2px solid #e44232;
 }
 
@@ -97,6 +159,7 @@ html {
 
 .nav__ul__logo {
   color: #e44232;
+  font-size: 1rem;
 }
 
 .nav__ul__logo:hover {

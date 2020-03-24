@@ -1,3 +1,3 @@
 export const initialState = {
-  counter: 0
+  counterReducer: 0
 };

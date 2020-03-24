@@ -44,6 +44,27 @@
 @mixin navLinkHover {
   color: black;
   background-color: rgb(241, 237, 237);
-  transition: 0.4s;
+  transition: 0.25s;
   border-bottom: 2px solid $red;
+}
+
+// Section Sizing
+
+@mixin secSizing {
+  max-width: 75%;
+}
+
+// Button Landing
+
+@mixin btnLand {
+  background-color: $red;
+  color: white;
+  padding: 0.9rem 1.8rem;
+  border-radius: 1rem;
+  font-weight: 600;
+}
+
+@mixin btnLandHover {
+  background-color: #f54637;
+  transition: 0.4s;
 }

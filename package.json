@@ -1,0 +1,28 @@
+{
+  "name": "prodiwork",
+  "version": "1.0.0",
+  "description": "- Productivity web app;\r - Inspired by Trello, Todoist and Google Callendar;",
+  "main": "index.js",
+  "scripts": {
+    "client-start": "cd client && npm run start",
+    "server-start": "cd server && npm run start",
+    "client-dev": "cd client && npm run dev",
+    "server-dev": "cd server && npm run dev",
+    "start": "concurrently \"npm run client-start\" \"npm run server-start\"",
+    "dev": "concurrently \"npm run client-dev\" \"npm run server-dev\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoaoGuimaraes22/Prodity.git"
+  },
+  "keywords": [],
+  "author": "John Gee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoaoGuimaraes22/Prodity/issues"
+  },
+  "homepage": "https://github.com/JoaoGuimaraes22/Prodity#readme",
+  "devDependencies": {
+    "concurrently": "^5.1.0"
+  }
+}

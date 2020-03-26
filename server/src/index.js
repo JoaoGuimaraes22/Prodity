@@ -11,9 +11,9 @@ app.use(helmet());
 app.use(express.json());
 app.use(cors());
 
-// Routers
+// Routes
 
-app.use("/api/userdata", require("./api/routes/userData"));
+app.use("/api/login", require("./api/routes/login"));
 
 // Server Port
 

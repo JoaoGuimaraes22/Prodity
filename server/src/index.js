@@ -1,8 +1,14 @@
 // Imports
 
+// Modules
+
 const express = require("express");
 const cors = require("cors");
 const helmet = require("helmet");
+
+// Helpers
+
+const connect = require("./db/connect");
 
 // Midleware
 const app = express();
@@ -11,9 +17,13 @@ app.use(helmet());
 app.use(express.json());
 app.use(cors());
 
+// DB Connection
+
+connect();
+
 // Routes
 
-app.use("/api/login", require("./api/routes/login"));
+app.use("/api/login", require("./routes/login"));
 
 // Server Port
 

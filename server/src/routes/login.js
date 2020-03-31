@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-// @route GET api/logim
+// @route GET /api/login
 // @desc Gets user id from DB
 // @access Public;
 

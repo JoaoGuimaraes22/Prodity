@@ -1,7 +1,11 @@
-const createUserTable = () => {
+const pool = require("../../db/pool");
+
+const createUsersTable = () => {
+  console.log("Creating users Table...");
   const queryText = `CREATE TABLE IF NOT EXISTS
       users(
         id UUID PRIMARY KEY,
+        name VARCHAR(128) NOT NULL, 
         email VARCHAR(128) UNIQUE NOT NULL,
         password VARCHAR(128) NOT NULL,
         created_date TIMESTAMP,
@@ -19,3 +23,5 @@ const createUserTable = () => {
       pool.end();
     });
 };
+
+module.exports = createUsersTable;

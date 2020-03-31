@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./src/index.js",
-    "dev": "nodemon ./src/index.js"
+    "dev": "nodemon ./src/index.js",
+    "create-all-tables": "node ./src/tables/createTables/index.js",
+    "drop-all-tables": "node ./src/tables/dropTables/index.js",
+    "select-all-tables": "node ./src/tables/selectAllTables/index.js"
   },
   "keywords": [],
   "author": "",

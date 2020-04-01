@@ -11,6 +11,7 @@ const connect = require("./db/connect");
 // Routes Imports
 const loginRoute = require("./routes/login");
 const signupRoute = require("./routes/signup");
+const testRoute = require("./routes/testPOST");
 
 // Midleware
 const app = express();
@@ -25,6 +26,7 @@ connect();
 // Routes
 app.use("/api/login", loginRoute);
 app.use("/api/signup", signupRoute);
+app.use("/api/test", testRoute);
 
 // Server Port
 const port = process.env.PORT || 5000;

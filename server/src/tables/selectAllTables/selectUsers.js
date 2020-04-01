@@ -10,7 +10,9 @@ const selectUsersTable = () => {
     })
     .catch(err => {
       console.log(err);
-      pool.end();
+      pool.end().catch(err => {
+        console.log(err);
+      });
     });
 };
 

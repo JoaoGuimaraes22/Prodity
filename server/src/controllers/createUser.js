@@ -1,10 +1,9 @@
 const moment = require("moment");
-// const uuid = require("uuid/v4");
 const query = require("../db/query");
 const validateEmail = require("../helpers/validateEmail");
 const hashPassword = require("../helpers/hashPassword");
 const generateToken = require("../helpers/generateToken");
-const uuid = require("uuid/v4");
+const { uuid } = require("uuidv4");
 
 const createUser = async (req, res) => {
   console.log("Trying to create user");

@@ -8,6 +8,7 @@ const createUser = require("../controllers/createUser");
 
 router.post("/", (req, res, next) => {
   try {
+    console.log(req.body.name, req.body.email, req.body.password);
     createUser(req, res);
   } catch (err) {
     console.log(err);

@@ -8,10 +8,10 @@
   - [ ] Introduction
   - [ ] User Stories
   - [ ] Footer
-- [ ] Log In
-  - [ ] Login Form
-- [ ] Sign Up
-  - [ ] Signup Form
+- [x] Log In
+  - [x] Login Form
+- [x] Sign Up
+  - [x] Signup Form
 - [ ] App
   - [ ] Implement "Trello like" Functionality
   - [ ]

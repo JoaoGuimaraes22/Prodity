@@ -7,12 +7,8 @@ const createUser = require("../controllers/createUser");
 // @access Public;
 
 router.post("/", (req, res, next) => {
-  try {
-    console.log(req.body.name, req.body.email, req.body.password);
-    createUser(req, res);
-  } catch (err) {
-    console.log(err);
-  }
+  console.log(req.body.name, req.body.email, req.body.password);
+  createUser(req, res);
 });
 
 module.exports = router;

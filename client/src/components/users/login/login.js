@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { FaGoogle } from "react-icons/fa";
-import { get } from "../../../helpers/GET";
 import { useRouter } from "next/router";
+import { post } from "axios";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -30,8 +30,15 @@ const Login = () => {
           className="login__container__item login__container__form"
           onSubmit={async e => {
             e.preventDefault();
-            const userID = await get("http://localhost:5000/api/userdata");
-            await router.push(`/app/${userID.id}`);
+            try {
+              const userID = await post("http://localhost:5000/api/login", {
+                email: email,
+                password: password
+              });
+              console.log(userID);
+            } catch (err) {
+              console.log(err);
+            }
           }}
         >
           <div className="form-item">

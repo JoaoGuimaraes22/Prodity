@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { FaGoogle } from "react-icons/fa";
+import { post } from "axios";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
 
   return (
     <main id="#signup" className="signup">
@@ -26,9 +28,20 @@ const Signup = () => {
 
         <form
           className="signup__container__item signup__container__form"
-          onSubmit={e => {
+          onSubmit={async e => {
             e.preventDefault();
-            console.log(name, email, password);
+            try {
+              const response = await post("http://localhost:5000/api/signup", {
+                email: email,
+                name: name,
+                password: password
+              });
+              const token = response.data.token;
+              console.log(token);
+            } catch (err) {
+              console.log(err.response.data);
+              setErrorMsg(err.response.data.message);
+            }
           }}
         >
           <div className="form-item">
@@ -65,6 +78,7 @@ const Signup = () => {
           </div>
 
           <input type="submit" value="Sign up now" className="btn-submit" />
+          <p style={{ color: "red", fontSize: "20px" }}>{errorMsg}</p>
         </form>
 
         <div className="signup__container__item signup__container__extra">

@@ -43,10 +43,10 @@ const createUser = async (req, res) => {
       console.log("User with that EMAIL already exists");
       return res
         .status(400)
-        .send({ message: "User with that EMAIL already exists" });
+        .send({ message: "* User with that EMAIL already exists" });
     }
     console.log(err);
-    return res.status(400).send(err);
+    return res.status(400).send({ message: err.message });
   }
 };
 

@@ -51,7 +51,7 @@ html {
 }
 
 .login__container {
-  margin-top: -1rem;
+  margin-top: 0rem;
   padding: 1rem 2rem;
   background-color: #ffffff;
   display: -webkit-box;
@@ -102,6 +102,7 @@ html {
 
 .login__container__intials .login-info {
   margin-top: 1rem;
+  font-size: 1.5rem;
 }
 
 .login__container__socials {

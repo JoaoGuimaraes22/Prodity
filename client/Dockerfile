@@ -1,24 +1,27 @@
-FROM node:10
+FROM node:alpine
 
-# Setting working directory. All the path will be relative to WORKDIR
-WORKDIR /usr/src/app
+RUN mkdir -p /opt/app
+RUN apk add --no-cache libc6-compat
+ENV NODE_ENV production
+ENV PORT 3000
+EXPOSE 3000
 
-# Installing dependencies
-COPY package*.json ./
-RUN npm install
+WORKDIR /opt/app
 
-# Copying source files
-COPY . .
+COPY package.json /opt/app
+COPY package-lock.json /opt/app
 
-# Building app
+RUN npm install --no-optional
+
+COPY . /opt/app
+
 RUN npm run build
 
-# Running the app
+RUN npx next telemetry disable
+
+RUN addgroup -g 1001 -S nodejs
+RUN adduser -S nextjs -u 1001
+
+USER nextjs
+
 CMD [ "npm", "start" ]
-
-
-# Build with -> docker build -t joaoguimaraes22/docker-nextjs .
-# Build with -> docker build -t <your_name>/docker-nextjs .
-
-# Run with -> docker run -d -p 3333:3000 joaoguimaraes22/docker-nextjs:latest
-# Run with -> docker run -d -p 3333:3000 <your_name>/docker-nextjs:latest

@@ -51,6 +51,7 @@ html {
 }
 
 .signup__container {
+  margin-top: 1rem;
   padding: 1rem 2rem;
   background-color: #ffffff;
   display: -webkit-box;
@@ -95,12 +96,13 @@ html {
 
 .signup__container__intials .signup-logo {
   color: #e44232;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   cursor: pointer;
 }
 
 .signup__container__intials .signup-info {
   margin-top: 1rem;
+  font-size: 1.5rem;
 }
 
 .signup__container__socials {

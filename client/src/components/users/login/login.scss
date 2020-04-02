@@ -5,7 +5,7 @@
   @include flexCollumn;
   background-color: #fafafa;
   &__container {
-    margin-top: -1rem;
+    margin-top: 0rem;
     padding: 1rem 2rem;
     background-color: $wh;
     @include flexCollumn;
@@ -26,6 +26,7 @@
       }
       .login-info {
         margin-top: 1rem;
+        font-size: 1.5rem;
       }
     }
 

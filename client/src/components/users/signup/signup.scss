@@ -5,6 +5,7 @@
   @include flexCollumn;
   background-color: #fafafa;
   &__container {
+    margin-top: 1rem;
     padding: 1rem 2rem;
     background-color: $wh;
     @include flexCollumn;
@@ -20,11 +21,12 @@
       width: 100%;
       .signup-logo {
         color: $red;
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         cursor: pointer;
       }
       .signup-info {
         margin-top: 1rem;
+        font-size: 1.5rem;
       }
     }
 

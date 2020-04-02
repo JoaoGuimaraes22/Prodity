@@ -8,7 +8,8 @@
     "dev": "nodemon ./src/index.js",
     "create-all-tables": "node ./src/tables/createTables/index.js",
     "drop-all-tables": "node ./src/tables/dropTables/index.js",
-    "select-all-tables": "node ./src/tables/selectAllTables/index.js"
+    "select-all-tables": "node ./src/tables/selectTables/index.js",
+    "delete-all-tables": "node ./src/tables/deleteTables/index.js"
   },
   "keywords": [],
   "author": "",

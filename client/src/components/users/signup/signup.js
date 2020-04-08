@@ -4,7 +4,7 @@ import { FaGoogle } from "react-icons/fa";
 import { post } from "axios";
 import { useRouter } from "next/router";
 import { goToApp } from "../../../helpers/goToApp";
-import { Cookies } from "react-cookie";
+import Cookies from "universal-cookie";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -48,8 +48,8 @@ const Signup = () => {
 
               const token = await response.data.token;
               const token_exp = await response.data.token_exp;
-              cookies.set("token_exp", token_exp);
-              cookies.set("token", token);
+              cookies.set("token_exp", token_exp, { path: "/" });
+              cookies.set("token", token, { path: "/" });
 
               goToApp(router, "/app/home");
             } catch (err) {

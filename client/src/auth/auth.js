@@ -7,7 +7,8 @@ import moment from "moment";
 const cookies = new Cookies();
 const serverUrl = "http://localhost:5000";
 
-export async function handleAuthSSR(ctx) {
+export async function handleAuthSSR(ctx, url) {
+  console.log("Authenticating in client, server-side (on handleAuthSSR)");
   let token = null;
   let token_exp = null;
 
@@ -15,6 +16,7 @@ export async function handleAuthSSR(ctx) {
   if (ctx.req) {
     // ugly way to get cookie value from a string of values
     // good enough for demostration
+
     token = ctx.req.headers.cookie.replace(
       /(?:(?:^|.*;\s*)token\s*\=\s*([^;]*).*$)|^.*$/,
       "$1"
@@ -31,17 +33,19 @@ export async function handleAuthSSR(ctx) {
   }
 
   try {
-    if(token_exp ==  )
+    if (token_exp == moment(new Date()).format("DD-MM-YYYY")) {
+      Router.push("/users/login");
+    }
 
-
-    const response = await axios.get(serverUrl + "/api/v1/auth/todos", {
+    console.log("Trying to GET data...");
+    const response = await axios.get(`${serverUrl}${url}`, {
       headers: { "x-access-token": token },
     });
     return response;
   } catch (err) {
     // in case of error
-    console.log(err.response.data.msg);
-    console.log("redirecting back to main page");
+    console.log(err);
+    console.log("Redirecting back to login page");
     // redirect to login
     if (ctx.res) {
       ctx.res.writeHead(302, {
@@ -49,7 +53,7 @@ export async function handleAuthSSR(ctx) {
       });
       ctx.res.end();
     } else {
-      Router.push("/");
+      Router.push("/users/login");
     }
   }
 }

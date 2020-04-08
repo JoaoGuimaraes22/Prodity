@@ -10,7 +10,7 @@ const insertTodos = async () => {
 
   const values = [
     uuid(),
-    "096c35fa-0e57-4742-99f6-ba63f1ba5b56",
+    "af22419a-17c5-4b08-b062-6d03850e45d6",
     "test_todo",
     moment(new Date()),
     moment(new Date()),

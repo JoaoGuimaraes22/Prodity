@@ -1,10 +1,11 @@
 import { handleAuthSSR } from "../../src/auth/auth";
 
-const Home = ({ props }) => {
+const Home = ({ test, data }) => {
   return (
     <>
       <p>Hello</p>
-      <p>{JSON.stringify(props.test)}</p>
+      <p>{test}</p>
+      <p>{JSON.stringify(data)}</p>
     </>
   );
 };
@@ -12,8 +13,8 @@ const Home = ({ props }) => {
 // This gets called on every request
 export async function getServerSideProps(ctx) {
   // Fetch data from external API
-  const res = await handleAuthSSR(ctx);
-  const data = await res.json();
+  const res = await handleAuthSSR(ctx, "/api/v1/auth/todos");
+  const data = await res.data;
 
   return { props: { test: "Worked", data: data } };
 }

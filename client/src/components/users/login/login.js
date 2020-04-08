@@ -4,6 +4,7 @@ import { FaGoogle } from "react-icons/fa";
 import { useRouter } from "next/router";
 import { post } from "axios";
 import Cookies from "universal-cookie";
+import { goToApp } from "../../../helpers/goToApp";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -39,10 +40,10 @@ const Login = () => {
                   password: password,
                 }
               );
-
               const token = await response.data.token;
-              cookies.set("token", token);
-              cookies.set("token_exp", token);
+              const token_exp = await response.data.token_exp;
+              cookies.set("token", token, { path: "/" });
+              cookies.set("token_exp", token_exp, { path: "/" });
               goToApp(router, "/app/home");
             } catch (err) {
               console.log(err);

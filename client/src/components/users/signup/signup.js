@@ -2,12 +2,18 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { FaGoogle } from "react-icons/fa";
 import { post } from "axios";
+import { useRouter } from "next/router";
+import { goToApp } from "../../../helpers/goToApp";
+import { Cookies } from "react-cookie";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
+
+  const cookies = new Cookies();
+  const router = useRouter();
 
   return (
     <main id="#signup" className="signup">
@@ -28,16 +34,24 @@ const Signup = () => {
 
         <form
           className="signup__container__item signup__container__form"
-          onSubmit={async e => {
+          onSubmit={async (e) => {
             e.preventDefault();
             try {
-              const response = await post("http://localhost:5000/api/signup", {
-                email: email,
-                name: name,
-                password: password
-              });
-              const token = response.data.token;
-              console.log(token);
+              const response = await post(
+                "http://localhost:5000/api/v1/signup",
+                {
+                  email: email,
+                  name: name,
+                  password: password,
+                }
+              );
+
+              const token = await response.data.token;
+              const token_exp = await response.data.token_exp;
+              cookies.set("token_exp", token_exp);
+              cookies.set("token", token);
+
+              goToApp(router, "/app/home");
             } catch (err) {
               console.log(err.response.data);
               setErrorMsg(err.response.data.message);
@@ -49,7 +63,7 @@ const Signup = () => {
             <input
               type="name"
               value={name}
-              onChange={e => {
+              onChange={(e) => {
                 setName(e.target.value);
               }}
             ></input>
@@ -60,7 +74,7 @@ const Signup = () => {
             <input
               type="email"
               value={email}
-              onChange={e => {
+              onChange={(e) => {
                 setEmail(e.target.value);
               }}
             ></input>
@@ -71,7 +85,7 @@ const Signup = () => {
             <input
               type="password"
               value={password}
-              onChange={e => {
+              onChange={(e) => {
                 setPassword(e.target.value);
               }}
             ></input>

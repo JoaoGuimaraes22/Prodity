@@ -3,7 +3,7 @@ const router = express.Router();
 const createUser = require("../controllers/createUser");
 
 // @route POST /api/signup
-// @desc Gets user id from DB
+// @desc Creates a new user
 // @access Public;
 
 router.post("/", (req, res, next) => {

@@ -3,12 +3,13 @@ import Link from "next/link";
 import { FaGoogle } from "react-icons/fa";
 import { useRouter } from "next/router";
 import { post } from "axios";
+import Cookies from "universal-cookie";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
-
+  const cookies = new Cookies();
   return (
     <main id="#login" className="login">
       <div className="login__container">
@@ -28,14 +29,21 @@ const Login = () => {
 
         <form
           className="login__container__item login__container__form"
-          onSubmit={async e => {
+          onSubmit={async (e) => {
             e.preventDefault();
             try {
-              const userID = await post("http://localhost:5000/api/login", {
-                email: email,
-                password: password
-              });
-              console.log(userID);
+              const response = await post(
+                "http://localhost:5000/api/v1/login",
+                {
+                  email: email,
+                  password: password,
+                }
+              );
+
+              const token = await response.data.token;
+              cookies.set("token", token);
+              cookies.set("token_exp", token);
+              goToApp(router, "/app/home");
             } catch (err) {
               console.log(err);
             }
@@ -46,7 +54,7 @@ const Login = () => {
             <input
               type="email"
               value={email}
-              onChange={e => {
+              onChange={(e) => {
                 setEmail(e.target.value);
               }}
             ></input>
@@ -57,7 +65,7 @@ const Login = () => {
             <input
               type="password"
               value={password}
-              onChange={e => {
+              onChange={(e) => {
                 setPassword(e.target.value);
               }}
             ></input>

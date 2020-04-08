@@ -9,15 +9,3 @@ const dropAllTables = () => {
 };
 
 dropAllTables();
-
-const endPool = () => {
-  try {
-    pool.end(() => {
-      console.log("Ended the Pool and process");
-    });
-  } catch (err) {
-    console.log(err);
-  }
-};
-
-endPool();

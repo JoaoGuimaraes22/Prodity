@@ -1,23 +1,12 @@
-const selectUsersTable = require("./selectUsers");
 const connect = require("../../db/connect");
-const pool = require("../../db/pool");
+const selectUsersTable = require("./selectUsers");
+const selectTodosTable = require("./selectTodos");
 
 connect();
 
 const selectAllTables = () => {
   selectUsersTable();
+  selectTodosTable();
 };
 
 selectAllTables();
-
-const endPool = () => {
-  try {
-    pool.end(() => {
-      console.log("Ended the Pool and process");
-    });
-  } catch (err) {
-    console.log(err);
-  }
-};
-
-endPool();

@@ -2,8 +2,8 @@ const express = require("express");
 const login = require("../controllers/validateUser");
 const router = express.Router();
 
-// @route GET /api/login
-// @desc Gets user id from DB
+// @route POST /api/login
+// @desc Validates user
 // @access Public;
 
 router.post("/", (req, res, next) => {

@@ -30,14 +30,18 @@ const createUser = async (req, res) => {
     req.body.email,
     hashedPassword,
     moment(new Date()),
-    moment(new Date())
+    moment(new Date()),
   ];
 
   try {
     const { rows } = await query(createUserQuery, values);
     const token = generateToken(rows[0].id);
     console.log({ token });
-    return res.status(201).send({ token });
+    return res.status(201).send({
+      token: token,
+      user_id: rows[0].id,
+      token_exp: moment(new Date()).add(7, "days").format("DD-MM-YYYY"),
+    });
   } catch (err) {
     if (err.routine === "_bt_check_unique") {
       console.log("User with that EMAIL already exists");

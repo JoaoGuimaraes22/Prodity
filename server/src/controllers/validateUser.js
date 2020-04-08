@@ -2,6 +2,7 @@ const query = require("../db/query");
 const validateEmail = require("../helpers/validateEmail");
 const comparePassword = require("../helpers/comparePassword");
 const generateToken = require("../helpers/generateToken");
+const moment = require("moment");
 
 const login = async (req, res) => {
   console.log("Validating user");
@@ -28,7 +29,11 @@ const login = async (req, res) => {
         .send({ message: "The credentials you provided is incorrect" });
     }
     const token = generateToken(rows[0].id);
-    return res.status(200).send({ token });
+    return res.status(200).send({
+      token: token,
+      user_id: rows[0].id,
+      token_exp: moment(new Date()).add(7, "days").format("DD-MM-YYYY"),
+    });
   } catch (error) {
     return res.status(400).send(error);
   }

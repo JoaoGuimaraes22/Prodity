@@ -1,7 +1,7 @@
 const pool = require("../../db/pool");
 
-const deleteUsersTable = () => {
-  const queryText = "DELETE FROM users RETURNING *;";
+const selectTodosTable = () => {
+  const queryText = "SELECT * FROM todos";
   pool
     .query(queryText)
     .then((res) => {
@@ -10,8 +10,10 @@ const deleteUsersTable = () => {
     })
     .catch((err) => {
       console.log(err);
-      pool.end();
+      pool.end().catch((err) => {
+        console.log(err);
+      });
     });
 };
 
-module.exports = deleteUsersTable;
+module.exports = selectTodosTable;

@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS
+  checklist_items(
+    id UUID PRIMARY KEY,
+    checklist_id UUID REFERENCES checklists(id),
+    name VARCHAR(128) NOT NULL, 
+    created_date TIMESTAMP,
+    modified_date TIMESTAMP
+  );

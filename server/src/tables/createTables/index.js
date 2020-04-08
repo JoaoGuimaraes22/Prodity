@@ -1,13 +1,15 @@
-const createUsersTable = require("./createUsers");
-const createTodosTable = require("./createTodos");
 const connect = require("../../db/connect");
-const pool = require("../../db/pool");
+const createUsers = require("./createUsers");
+const createProjects = require("./createProjects");
+const createBoards = require("./createBoards");
+const createTasks = require("./createTasks");
+
 
 connect();
 
 const createAllTables = () => {
-  createUsersTable();
-  createTodosTable();
-};
+  createUsers();
+  createProjects();
+  createBoards();
 
 createAllTables();

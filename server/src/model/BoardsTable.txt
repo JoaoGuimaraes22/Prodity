@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS
+  boards(
+    id UUID PRIMARY KEY,
+    project_id UUID REFERENCES projects(id),
+    user_id UUID REFERENCES users(id),
+    name VARCHAR(128) NOT NULL, 
+    created_date TIMESTAMP,
+    modified_date TIMESTAMP
+  );

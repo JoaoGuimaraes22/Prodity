@@ -1,11 +1,11 @@
 const pool = require("../../db/pool");
 
-const createTodosTable = () => {
+const createProjectsTable = () => {
   console.log("Creating todos Table...");
   const queryText = `CREATE TABLE IF NOT EXISTS
-      todos(
+      projects(
         id UUID PRIMARY KEY,
-        owner_id UUID REFERENCES users(id),
+        user_id UUID REFERENCES users(id),
         name VARCHAR(128) NOT NULL, 
         created_date TIMESTAMP,
         modified_date TIMESTAMP
@@ -23,4 +23,4 @@ const createTodosTable = () => {
     });
 };
 
-module.exports = createTodosTable;
+module.exports = createProjectsTable;

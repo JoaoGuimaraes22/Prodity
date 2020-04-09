@@ -1,13 +1,27 @@
+import Link from "next/link";
+
 const Sidebar = () => {
   return (
     <>
       <nav>
         <ul>
-          <li></li>
-          <li></li>
-          <li></li>
+          <Link href="/app/home">
+            <a>
+              <li>Inbox</li>
+            </a>
+          </Link>
+          <Link href="/app/today">
+            <a>
+              <li>Today</li>
+            </a>
+          </Link>
+          <Link href="/app/nextseven">
+            <a>
+              <li>Next 7 Days</li>
+            </a>
+          </Link>
         </ul>
-        <Projects />
+        <Projects projects={projects} />
       </nav>
     </>
   );

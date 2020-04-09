@@ -14,11 +14,11 @@ const createUsersTable = () => {
 
   pool
     .query(queryText)
-    .then(res => {
+    .then((res) => {
       console.log(res);
       pool.end();
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
       pool.end();
     });

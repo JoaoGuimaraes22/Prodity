@@ -5,7 +5,7 @@ const generateToken = require("../helpers/generateToken");
 const moment = require("moment");
 
 const login = async (req, res) => {
-  console.log("Validating user");
+  console.log("Validating user...");
   console.log(req.body);
   console.log(req.body.email);
   if (!req.body.email || !req.body.password) {

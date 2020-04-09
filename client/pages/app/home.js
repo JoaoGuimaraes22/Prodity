@@ -1,11 +1,14 @@
 import { handleAuthSSR } from "../../src/auth/auth";
+import Layout from "../../src/components/app/layout/layout";
 
 const Home = ({ test, data }) => {
   return (
     <>
-      <p>Hello</p>
-      <p>{test}</p>
-      <p>{JSON.stringify(data)}</p>
+      <Layout>
+        <p>Hello</p>
+        <p>{test}</p>
+        <p>{JSON.stringify(data)}</p>
+      </Layout>
     </>
   );
 };

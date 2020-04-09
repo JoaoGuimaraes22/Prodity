@@ -34,8 +34,16 @@ export async function handleAuthSSR(ctx, url) {
 
   try {
     if (token_exp >= moment(new Date()).format("DD-MM-YYYY")) {
-      Router.push("/users/login");
+      if (ctx.res) {
+        ctx.res.writeHead(302, {
+          Location: "/users/login",
+        });
+        ctx.res.end();
+      } else {
+        Router.push("/users/login");
+      }
     }
+
     const response = await axios.get(`${serverUrl}${url}`, {
       headers: { "x-access-token": token },
     });

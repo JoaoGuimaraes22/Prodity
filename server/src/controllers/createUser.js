@@ -6,7 +6,7 @@ const generateToken = require("../helpers/generateToken");
 const { uuid } = require("uuidv4");
 
 const createUser = async (req, res) => {
-  console.log("Trying to create user");
+  console.log("Trying to create user...");
   if (!req.body.name || !req.body.email || !req.body.password) {
     console.log("Some values are missing");
     return res.status(400).send({ message: "Some values are missing" });
